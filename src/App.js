@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { AdminHome } from "./Admin/AdminHome/AdminHome";
+import  AdminLogin  from "./Admin/AdminLogin/AdminLogin";
+import { AdminMain } from "./Admin/AdminMain/AdminMain";
+import "./App.css";
+import { Home } from "./Main/Home/Home";
+import { checkAdminAuthLoader } from "./Util/AdminHelper";
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+    ],
+  },
+  {
+    path: "/admin",
+    element: <AdminMain />,
+    children: [
+      {
+        index: true,
+        element: <AdminHome />,
+        loader: checkAdminAuthLoader,
+      },
+      {
+        path: "login",
+        element: <AdminLogin />,
+      },
+    ],
+  },
+]);
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
