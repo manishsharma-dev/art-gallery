@@ -1,15 +1,16 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { AdminHome } from "./Admin/AdminHome/AdminHome";
-import  AdminLogin  from "./Admin/AdminLogin/AdminLogin";
+import  AdminLogin, { authAction }  from "./Admin/AdminLogin/AdminLogin";
 import { AdminMain } from "./Admin/AdminMain/AdminMain";
 import "./App.css";
 import { Home } from "./Main/Home/Home";
 import { checkAdminAuthLoader } from "./Util/AdminHelper";
+import { Parent } from "./Main/Parent/Parent";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Parent />,
     children: [
       {
         index: true,
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <AdminLogin />,
+        action : authAction
       },
     ],
   },
