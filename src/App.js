@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { AdminHome } from "./Admin/AdminHome/AdminHome";
+import AdminHome from "./Admin/AdminHome/AdminHome";
 import AdminLogin, { authAction } from "./Admin/AdminLogin/AdminLogin";
 import { AdminMain } from "./Admin/AdminMain/AdminMain";
 import "./App.css";
