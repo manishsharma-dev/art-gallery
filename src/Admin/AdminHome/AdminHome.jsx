@@ -8,10 +8,15 @@ function AdminHome() {
   return (
     <div>
       <Header />
-      <Sidebar />
       <div>
-        <Dashboard />
+        <div>
+          <Sidebar />
+        </div>
+        <div>
+          <Dashboard />
+        </div>
       </div>
+
       <Routes>
         <Route path='/admin' Component={Dashboard} />
       </Routes>

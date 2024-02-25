@@ -1,6 +1,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import '@fortawesome/fontawesome-free/css/all.css';
 
 * {
   box-sizing: border-box;
@@ -8,8 +9,7 @@
 
 body {
   margin: 0;
-  height: 100vh;
-  background-color: #31302e;
+  height: 100vh;  
   font-family: "Roboto", sans-serif;
 }
 
